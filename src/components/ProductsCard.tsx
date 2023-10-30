@@ -3,23 +3,40 @@ import {
   TouchableOpacity,
   TouchableOpacityProps,
 } from "react-native";
-import { Heading, HStack, Icon, Image, Text, VStack } from "native-base";
-import { ImageSourcePropType } from "react-native";
+import { Heading, HStack, Icon, Image, Text, Toast, VStack } from "native-base";
 import { Plus } from "phosphor-react-native";
+import { useCart } from "../hooks/useCart";
+import { ProductsCardProps } from "../types";
+import { useNavigation } from "@react-navigation/native";
 
-export interface ProductsCardProps {
-  id: string;
-  title: string;
-  price: number;
-  image?: ImageSourcePropType;
-  priceFormatted: string;
-}
-
-interface Props extends TouchableOpacityProps {
+interface props extends TouchableOpacityProps {
   data: ProductsCardProps;
 }
 
-export function ProductsCard({ data, ...rest }: Props) {
+export function ProductsCard({ data, ...rest }: props) {
+  const { navigate } = useNavigation();
+  const { addProductCart } = useCart();
+
+  async function handleAddProductToCart(id: string) {
+    try {
+      await addProductCart(id);
+
+      Toast.show({
+        title: "Produto adicionado no carrinho",
+        placement: "top",
+        bgColor: "green.500",
+      });
+
+      navigate("cart");
+    } catch (error) {
+      Toast.show({
+        title: "Não foi possível adicionar o produto no carrinho",
+        placement: "top",
+        bgColor: "reed.500",
+      });
+    }
+  }
+
   return (
     <TouchableOpacity {...rest}>
       <HStack
@@ -43,17 +60,17 @@ export function ProductsCard({ data, ...rest }: Props) {
         />
 
         <VStack flex={1} ml={3}>
-          <Heading color="white" fontFamily="heading" fontSize="lg" mt={3}>
+          <Heading color="white" fontFamily="heading" fontSize="lg" mt={1}>
             {data.title}
           </Heading>
 
-          <Text color="gray.200" fontSize="sm">
+          <Text color="gray.200" fontSize="sm" mt={3}>
             {data.priceFormatted}
           </Text>
         </VStack>
 
-        <TouchableOpacity onPress={() => null}>
-          <Icon as={Plus} name="trash" size={6} color="green.500" />
+        <TouchableOpacity onPress={() => handleAddProductToCart(data.id)}>
+          <Icon as={Plus} px={5} name="trash" size={6} color="green.500" />
         </TouchableOpacity>
       </HStack>
     </TouchableOpacity>
