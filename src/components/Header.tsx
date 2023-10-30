@@ -1,4 +1,4 @@
-import { Box, HStack, Text } from "native-base";
+import { Box, HStack, Heading } from "native-base";
 import { CaretLeft } from "phosphor-react-native";
 import { ButtonIcon } from "./ButtonIcon";
 import { useNavigation } from "@react-navigation/native";
@@ -13,8 +13,6 @@ export function Header({ title = "", showBackButton = false }: HomeProps) {
 
   const EmptyBoxSpace = () => <Box w={6} h={6} />;
 
-  const result: any[] = [];
-
   return (
     <HStack w="full" h={24} pb={5} px={5} bg="gray.600" alignItems="flex-end">
       {showBackButton ? (
@@ -23,9 +21,9 @@ export function Header({ title = "", showBackButton = false }: HomeProps) {
         <EmptyBoxSpace />
       )}
       <HStack w="full" alignItems="center" justifyContent="center">
-        <Text color={"white"} fontSize="md" fontFamily="heading">
+        <Heading color="white" fontSize="xl">
           {title}
-        </Text>
+        </Heading>
       </HStack>
     </HStack>
   );
