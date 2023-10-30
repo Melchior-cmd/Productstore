@@ -1,4 +1,4 @@
-import { Center, HStack, Row, Text, VStack } from "native-base";
+import { Center, Text } from "native-base";
 
 export function EmptyProductList() {
   return (

@@ -1,4 +1,4 @@
-import { NativeBaseProvider, Text, StatusBar } from "native-base";
+import { NativeBaseProvider, StatusBar } from "native-base";
 import { THEME } from "./src/styles/theme";
 import {
   useFonts,
@@ -9,6 +9,7 @@ import {
 
 import { Loading } from "./src/components/Loading";
 import { Routes } from "./src/routes";
+import { CartContextProvider } from "./src/contexts/CartContext";
 
 export default function App() {
   const [fontsLoad] = useFonts({
@@ -24,7 +25,9 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoad ? <Routes /> : <Loading />}
+      <CartContextProvider>
+        {fontsLoad ? <Routes /> : <Loading />}
+      </CartContextProvider>
     </NativeBaseProvider>
   );
 }

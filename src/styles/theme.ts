@@ -17,7 +17,7 @@ export const THEME = extendTheme({
     },
     white: "#FFFFFF",
     red: {
-      500: "#F75A68",
+      500: "#DB4437",
     },
   },
   fonts: {
@@ -30,7 +30,7 @@ export const THEME = extendTheme({
     sm: 14,
     md: 16,
     lg: 18,
-    xl: 20,
+    xl: 25,
   },
   sizes: {
     14: 56,

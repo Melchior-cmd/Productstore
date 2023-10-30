@@ -1,12 +1,13 @@
 import { FlatList, VStack, useToast } from "native-base";
 import { Header } from "../components/Header";
 import { useCallback, useState } from "react";
-import { ProductsCard, ProductsCardProps } from "../components/ProductsCard";
+import { ProductsCard } from "../components/ProductsCard";
 import { useFocusEffect } from "@react-navigation/native";
 import { Loading } from "../components/Loading";
 import { EmptyProductList } from "../components/EmptyProductList";
 import { formatPrice } from "../util/format";
 import { api } from "../services/api";
+import { ProductsCardProps } from "../types";
 
 export function Home() {
   const [products, setProducts] = useState<ProductsCardProps[]>([]);
@@ -31,8 +32,6 @@ export function Home() {
       }));
       setProducts(data);
     } catch (error) {
-      console.log(error);
-
       toast.show({
         title: "Não foi possivel encontrar os produtos",
         placement: "top",
@@ -45,7 +44,7 @@ export function Home() {
 
   return (
     <VStack flex={1}>
-      <Header title="Meus Produtos" showBackButton />
+      <Header title="Meus Produtos" showBackButton={false} />
 
       {isLoading ? (
         <Loading />
@@ -57,8 +56,8 @@ export function Home() {
           ListEmptyComponent={() => <EmptyProductList />}
           _contentContainerStyle={{ alignItems: "center", paddingBottom: 20 }}
           showsVerticalScrollIndicator={false}
-          px={6}
-          mt={2}
+          px={7}
+          mt={3}
         />
       )}
     </VStack>
