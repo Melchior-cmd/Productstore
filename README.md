@@ -25,29 +25,28 @@ FRONT-END
   
 <div align="center">
 <h1>
-Versão web
+MOBILE
 </h1>
 </div>
  
-<img src="https://user-images.githubusercontent.com/54017816/232553203-ba898182-ff06-4057-a6d4-37d4bfdf9569.gif" />
+<img src="https://user-images.githubusercontent.com/54017816/279569802-130460ef-8ba3-4f6b-bc11-5de00f218ee3.jpg" />
 
 <div align="center">
 <h1>
-Versão Mobile
+Tela dos Produtos
 </h1>
 </div>
 
-Aqui estamos fazendo uma authenticação com a conta do Google no Aplicativo, esta sendo usado api do Google para fazer essa interação com o Back-end, em seguida você consegue cadastrar um novo Bolão pelo app também , como já criamos um bolão na versão Web vamos usa o código gerado para acessar o Bolão no proximo vídeo.
+Nessa tela está sendo responsavel por lista todos os produtos da loja, e também está sendo feito o fluxo ao clica no add o produto ser inserido no carrinho.
 
-<img src="https://user-images.githubusercontent.com/54017816/232638242-020ca6e2-5faa-4279-81a0-6482344ae3eb.gif" />
+<img src="https://user-images.githubusercontent.com/54017816/279569994-f0d8074f-8e82-41a6-af6e-64e12ea33702.jpg" />
   
-aqui está listando a lista dos bolões criados, e estamos usando a funcionalidade de acessar o bolão pelo código.
+aqui está listando a listar dos produtos e mensagem após o item ser adicionado no carrinho com uma mensagem de validação.
 
-<img src="https://user-images.githubusercontent.com/54017816/232639440-3408fcbe-a1a0-456b-a3b0-0c9d6799482f.gif" />
+<img src="https://user-images.githubusercontent.com/54017816/279570098-11e21312-b48c-4ab4-829b-b9c70ba106fd.jpg" />
   
-nessa tela e os detalhes do bolão aonde você realiza as apostas ver o Ranking de quem está ganhando , e também consegue compartilha o Código da sala pela funcionalidade share.
+Essa e a tela do carrinho , aonde fica todos os produtos adicionado ao carrinho para ser comprado.
 
-<img src="https://user-images.githubusercontent.com/54017816/232638351-bbb49ab6-231d-4d8a-8d89-ca970ff352fe.gif" />
 
 ## <h1><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4bb.png" width="28px"/> Configurações</h1>
 
