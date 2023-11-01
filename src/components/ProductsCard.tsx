@@ -7,14 +7,12 @@ import { Heading, HStack, Icon, Image, Text, Toast, VStack } from "native-base";
 import { Plus } from "phosphor-react-native";
 import { useCart } from "../hooks/useCart";
 import { ProductsCardProps } from "../types";
-import { useNavigation } from "@react-navigation/native";
 
 interface props extends TouchableOpacityProps {
   data: ProductsCardProps;
 }
 
 export function ProductsCard({ data, ...rest }: props) {
-  const { navigate } = useNavigation();
   const { addProductCart } = useCart();
 
   async function handleAddProductToCart(id: string) {
@@ -26,8 +24,6 @@ export function ProductsCard({ data, ...rest }: props) {
         placement: "top",
         bgColor: "green.500",
       });
-
-      navigate("cart");
     } catch (error) {
       Toast.show({
         title: "Não foi possível adicionar o produto no carrinho",

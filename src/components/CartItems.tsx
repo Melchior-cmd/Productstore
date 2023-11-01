@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { HStack, Image, Input, Text, VStack, useToast } from "native-base";
+import { HStack, Image, Input, Text, VStack } from "native-base";
 import { TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { ProductsCardProps } from "../types";
@@ -13,11 +13,25 @@ interface Props {
   data: ProductsCardProps;
 }
 
-export function CartItems({ data, onRemove, ...rest }: CartItemsProps) {
-  const [quantity, setQuantity] = useState("1");
+export function CartItems({ data, onRemove }: CartItemsProps) {
+  const [quantityCart, setQuantityCart] = useState(1);
+
+  const handleProductIncrement = () => {
+    const cart = quantityCart + 1;
+
+    setQuantityCart(cart);
+  };
+
+  const handleProductDecrement = () => {
+    const cart = quantityCart - 1;
+
+    if (quantityCart > 0) {
+      setQuantityCart(cart);
+    }
+  };
 
   return (
-    <TouchableOpacity
+    <VStack
       style={{
         width: "100%",
         height: 100,
@@ -26,13 +40,12 @@ export function CartItems({ data, onRemove, ...rest }: CartItemsProps) {
         alignItems: "center",
         marginTop: 20,
       }}
-      {...rest}
     >
       <VStack
         style={{
-          width: "30%",
+          width: "26%",
           height: 100,
-          padding: 14,
+          padding: 0,
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: "#F0F0F3",
@@ -59,10 +72,10 @@ export function CartItems({ data, onRemove, ...rest }: CartItemsProps) {
             fontWeight="600"
             letterSpacing={1}
           >
-            {data.title}
+            {`${data.title.substring(0, 40)}...`}
           </Text>
           <HStack
-            marginTop={4}
+            marginTop={2}
             flexDirection="row"
             alignItems="center"
             opacity={0.6}
@@ -85,7 +98,7 @@ export function CartItems({ data, onRemove, ...rest }: CartItemsProps) {
         >
           <HStack flexDirection="row" alignItems="center" mt={3}>
             <TouchableOpacity
-              onPress={null}
+              onPress={handleProductDecrement}
               style={{
                 borderRadius: 100,
                 marginRight: 20,
@@ -101,20 +114,20 @@ export function CartItems({ data, onRemove, ...rest }: CartItemsProps) {
                   fontSize: 16,
                   color: "#F75A68",
                 }}
-                onPress={null}
               />
             </TouchableOpacity>
             <Input
-              onChangeText={setQuantity}
+              onChangeText={(text) => setQuantityCart(parseInt(text))}
               textAlign="center"
               type="text"
-              isDisabled={true}
-              value={quantity}
+              isReadOnly={true}
+              value={quantityCart.toString()}
               h={6}
               w={12}
               color="#F0F0F3"
             />
             <TouchableOpacity
+              onPress={handleProductIncrement}
               style={{
                 borderRadius: 100,
                 marginLeft: 20,
@@ -130,7 +143,6 @@ export function CartItems({ data, onRemove, ...rest }: CartItemsProps) {
                   fontSize: 16,
                   color: "#00B37E",
                 }}
-                onPress={null}
               />
             </TouchableOpacity>
           </HStack>
@@ -149,6 +161,6 @@ export function CartItems({ data, onRemove, ...rest }: CartItemsProps) {
           </TouchableOpacity>
         </HStack>
       </VStack>
-    </TouchableOpacity>
+    </VStack>
   );
 }

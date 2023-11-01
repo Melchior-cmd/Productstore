@@ -40,11 +40,8 @@ export function CartContextProvider({
   const addProductCart = async (productId: string) => {
     try {
       const updatedCart = [...cart];
-      // const productExists = updatedCart.find(
-      //   (product) => product.id === productId
-      // );
+
       const product = await api.get(`/products/${productId}`);
-      console.log(product);
 
       const newProduct = {
         ...product.data,
@@ -91,7 +88,13 @@ export function CartContextProvider({
   };
 
   return (
-    <CartContext.Provider value={{ cart, addProductCart, removeProductCart }}>
+    <CartContext.Provider
+      value={{
+        cart,
+        addProductCart,
+        removeProductCart,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

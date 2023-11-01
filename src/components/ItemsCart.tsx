@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { FlatList, HStack, Text, VStack, useToast } from "native-base";
 
 import { useCart } from "../hooks/useCart";
@@ -8,14 +9,17 @@ import { ProductsCardProps } from "../types";
 import { formatPrice } from "../util/format";
 import { ListRenderItemInfo } from "react-native";
 import { EmptyProductCart } from "./EmptyProductCart";
+import { Loading } from "./Loading";
 
 export function ItemsCart() {
   const { cart, removeProductCart } = useCart();
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const cartFormatted = cart.map((product) => ({
     ...product,
     priceFormatted: formatPrice(product.price),
-    subTotal: formatPrice(product.price),
+    subTotal: product.price,
   }));
 
   const total = formatPrice(
@@ -23,9 +27,22 @@ export function ItemsCart() {
       return sumTotal + product.price;
     }, 0)
   );
+
   const toast = useToast();
 
+  const renderCart = (entry: ListRenderItemInfo<ProductsCardProps>) => {
+    const { item } = entry;
+
+    if (isLoading) {
+      return <Loading />;
+    }
+    return (
+      <CartItems data={item} onRemove={() => handleRemoveProduct(item.id)} />
+    );
+  };
+
   async function handleRemoveProduct(productId: string) {
+    setIsLoading(true);
     try {
       await removeProductCart(productId);
 
@@ -41,6 +58,11 @@ export function ItemsCart() {
         bgColor: "reed.500",
       });
     }
+    setIsLoading(false);
+  }
+
+  if (isLoading) {
+    return <Loading />;
   }
 
   return (
@@ -48,25 +70,16 @@ export function ItemsCart() {
       <FlatList
         data={cartFormatted}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }: ListRenderItemInfo<ProductsCardProps>) => (
-          <CartItems
-            data={item}
-            onRemove={() => handleRemoveProduct(item.id)}
-          />
-        )}
+        renderItem={renderCart}
         ListEmptyComponent={() => <EmptyProductCart />}
         _contentContainerStyle={{ alignItems: "center", paddingBottom: 20 }}
-        showsVerticalScrollIndicator={false}
+        showsVerticalScrollIndicator={true}
         px={8}
         mt={2}
       />
+
       {cart.length > 0 && (
-        <HStack
-          flex={2}
-          justifyContent="space-between"
-          alignItems="flex-end"
-          position="fixed"
-        >
+        <HStack flex={1} justifyContent="space-between" alignItems="flex-end">
           <Text color="gray.200" fontSize="sm">
             TOTAL:
           </Text>

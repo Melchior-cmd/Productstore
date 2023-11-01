@@ -9,4 +9,5 @@ export interface ProductsCardProps {
   rating: {
     count: number;
   };
+  quantity: number;
 }
