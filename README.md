@@ -21,7 +21,7 @@ FRONT-END
 </div>
 
 
-## GIFS
+## Imagens
   
 <div align="center">
 <h1>
