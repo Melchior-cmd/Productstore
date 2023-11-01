@@ -37,10 +37,12 @@ export function CartContextProvider({
 
   const toast = useToast();
 
+  //Função responsavel por add os produtos no carrinho.
   const addProductCart = async (productId: string) => {
     try {
       const updatedCart = [...cart];
 
+      // Obtenha os detalhes do produto da API
       const product = await api.get(`/products/${productId}`);
 
       const newProduct = {
@@ -61,6 +63,7 @@ export function CartContextProvider({
     }
   };
 
+  //Função responsavel por remover os produtos no carrinho.
   const removeProductCart = (productId: string) => {
     try {
       const updatedCart = [...cart];

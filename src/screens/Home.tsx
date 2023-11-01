@@ -21,6 +21,7 @@ export function Home() {
     }, [])
   );
 
+  //Função responsavel por listar os produtos da API faker
   async function fetchProducts() {
     try {
       setIsLoading(true);

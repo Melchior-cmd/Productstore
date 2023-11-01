@@ -12,7 +12,9 @@ const { Navigator, Screen } = createBottomTabNavigator();
 export function AppRoutes() {
   const { colors, sizes } = useTheme();
   const { cart } = useCart();
+  //Calcular a quantidade de produtos inserido no carrinho
   const cartSize = cart.length;
+
   return (
     <Navigator
       screenOptions={{

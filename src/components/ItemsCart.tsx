@@ -16,12 +16,14 @@ export function ItemsCart() {
 
   const [isLoading, setIsLoading] = useState(false);
 
+  // Mapeia cada produto no carrinho e cria uma nova estrutura de dados formatada
   const cartFormatted = cart.map((product) => ({
     ...product,
     priceFormatted: formatPrice(product.price),
     subTotal: product.price,
   }));
 
+  // Calcula o total dos preços dos produtos no carrinho e formata o resultado
   const total = formatPrice(
     cart.reduce((sumTotal, product) => {
       return sumTotal + product.price;
@@ -30,6 +32,7 @@ export function ItemsCart() {
 
   const toast = useToast();
 
+  //função responsavel por renderizar  o componente CartItems no Flatlist
   const renderCart = (entry: ListRenderItemInfo<ProductsCardProps>) => {
     const { item } = entry;
 
@@ -41,6 +44,7 @@ export function ItemsCart() {
     );
   };
 
+  // Remover os Produtos do carrinho
   async function handleRemoveProduct(productId: string) {
     setIsLoading(true);
     try {
