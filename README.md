@@ -39,13 +39,13 @@ Tela dos Produtos
 </h1>
 </div>
 
-Nessa tela está sendo responsavel por lista todos os produtos da loja, e também está sendo feito o fluxo ao clica no add o produto ser inserido no carrinho.
+Nesta tela, a responsabilidade principal é listar todos os produtos disponíveis na loja e também gerenciar o fluxo quando o usuário clica no botão "Adicionar". Quando o usuário clica no botão "Adicionar", o produto é inserido no carrinho de compras.
 
 <div align="center">
 <img src="https://user-images.githubusercontent.com/54017816/279569994-f0d8074f-8e82-41a6-af6e-64e12ea33702.jpg"  align="center"/>
 </div>
 
-aqui está listando a listar dos produtos e mensagem após o item ser adicionado no carrinho com uma mensagem de validação.
+Aqui, estamos exibindo a lista de produtos e, após a adição de um item ao carrinho, uma mensagem de validação é exibida.
 
 <div align="center">
 <h1>
@@ -56,7 +56,7 @@ Tela do Carrinho
 <img src="https://user-images.githubusercontent.com/54017816/279570098-11e21312-b48c-4ab4-829b-b9c70ba106fd.jpg" align="center"/>
 </div>
 
-Essa e a tela do carrinho , aonde fica todos os produtos adicionado ao carrinho para ser comprado.
+Esta é a tela do carrinho, onde todos os produtos adicionados estão listados para a compra.
 
 
 ## <h1><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4bb.png" width="28px"/> Configurações</h1>
