@@ -49,7 +49,7 @@ aqui está listando a listar dos produtos e mensagem após o item ser adicionado
 
 <div align="center">
 <h1>
-Tela dos Produtos
+Tela do Carrinho
 </h1>
 </div>
 <div align="center">
