@@ -29,7 +29,7 @@ MOBILE
 </h1>
 </div>
  
-<img src="https://user-images.githubusercontent.com/54017816/279569802-130460ef-8ba3-4f6b-bc11-5de00f218ee3.jpg" />
+<img src="https://user-images.githubusercontent.com/54017816/279569802-130460ef-8ba3-4f6b-bc11-5de00f218ee3.jpg" align="center"/>
 
 <div align="center">
 <h1>
@@ -39,25 +39,22 @@ Tela dos Produtos
 
 Nessa tela está sendo responsavel por lista todos os produtos da loja, e também está sendo feito o fluxo ao clica no add o produto ser inserido no carrinho.
 
-<img src="https://user-images.githubusercontent.com/54017816/279569994-f0d8074f-8e82-41a6-af6e-64e12ea33702.jpg" />
+<img src="https://user-images.githubusercontent.com/54017816/279569994-f0d8074f-8e82-41a6-af6e-64e12ea33702.jpg"  align="center"/>
   
 aqui está listando a listar dos produtos e mensagem após o item ser adicionado no carrinho com uma mensagem de validação.
 
-<img src="https://user-images.githubusercontent.com/54017816/279570098-11e21312-b48c-4ab4-829b-b9c70ba106fd.jpg" />
+<img src="https://user-images.githubusercontent.com/54017816/279570098-11e21312-b48c-4ab4-829b-b9c70ba106fd.jpg" align="center"/>
   
 Essa e a tela do carrinho , aonde fica todos os produtos adicionado ao carrinho para ser comprado.
 
 
 ## <h1><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4bb.png" width="28px"/> Configurações</h1>
 
-Back-end:
-
-<strong>npm run dev </strong>
-
-Front-end
-
-<strong>npm run dev</strong>
 
 Mobile
+
+<strong>Apos baixa o projeto</strong>
+
+<strong>npm i ou npm install</strong>
 
 <strong>Npx expo start</strong>
