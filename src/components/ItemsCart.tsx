@@ -83,7 +83,12 @@ export function ItemsCart() {
       />
 
       {cart.length > 0 && (
-        <HStack flex={1} justifyContent="space-between" alignItems="flex-end">
+        <HStack
+          flexDirection="row"
+          justifyContent="space-between"
+          alignItems="flex-end"
+          marginX={3}
+        >
           <Text color="gray.200" fontSize="sm">
             TOTAL:
           </Text>
@@ -93,7 +98,9 @@ export function ItemsCart() {
         </HStack>
       )}
 
-      {cart.length > 0 && <Button title="Finalizar compra" mr={2} my={3} />}
+      {cart.length > 0 && (
+        <Button title="Finalizar compra" mr={2} my={1} mx={1.3} />
+      )}
     </VStack>
   );
 }

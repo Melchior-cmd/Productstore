@@ -8,7 +8,7 @@ interface Props extends IButtonProps {
 export function Button({ title, type = "SECONDARY", ...rest }: Props) {
   return (
     <ButtonNativeBase
-      w="full"
+      w="98%"
       h={14}
       rounded="md"
       fontSize="md"
