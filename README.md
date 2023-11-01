@@ -48,6 +48,11 @@ Nessa tela está sendo responsavel por lista todos os produtos da loja, e també
 aqui está listando a listar dos produtos e mensagem após o item ser adicionado no carrinho com uma mensagem de validação.
 
 <div align="center">
+<h1>
+Tela dos Produtos
+</h1>
+</div>
+<div align="center">
 <img src="https://user-images.githubusercontent.com/54017816/279570098-11e21312-b48c-4ab4-829b-b9c70ba106fd.jpg" align="center"/>
 </div>
 
